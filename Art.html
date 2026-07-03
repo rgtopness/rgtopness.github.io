@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<!--
+  ART
+-->
+<html>
+	<head>
+		<title>Art - Rebecca G. Topness</title>
+    <!--<link rel="icon" type="image/x-icon" href="images/favicon.ico"> ADD THE TAB ICON-->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+					<h1 id="logo"><a href="#">Rebecca G. Topness</a></h1>
+					<p>PhD candidate at the University<br />
+					at Buffalo</p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="#one" class="active">Home</a></li>
+						<li><a href="#two">Research</a></li>
+						<li><a href="#three">Publications</a></li>
+						<li><a href="Art.html">Art</a></li>
+						<li><a href="Writing.html">Writing</a></li>
+						<!--<li><a href="#four">Contact</a></li> -->
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="mailto:rgtopnes@buffalo.edu" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="https://github.com/rgtopness" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.instagram.com/rebeccatopnessart/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.linkedin.com/in/rgtopness/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<!--<li><a href='#' class="icon brands fa-orcid"><span class="label">Orcid</span></a></li> -->
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="image main" data-position="center">
+									<img src="images/banner.jpg" alt="" />
+								</div>
+								<div class="container">
+									<h2>Art</h2>
+										<p>I use art as a tool to communicate science.</p> 
+
+                </div>
+							</section>
+
+              <section id="two">
+                <div class="container">
+                  <h3>Graphics, Figures and Illustrations</h3>
+
+          <div class="gallery-container">
+            <button class="gallery-nav left" aria-label="Scroll left">❮</button>
+            <div class="gallery" id="gallery1">
+
+                <div class="gallery-item">
+                    <div class="card">
+                      <div class="front">
+                        <img src="images/pic03.jpg" alt="Description 1">
+                        <div class="caption short">Short caption here</div>
+                      </div>
+                      <div class="back">
+                        <div class="caption long">
+                          Long caption here 
+                        </div>
+                      </div>
+                    </div>
+                </div>
+          
+                <div class="gallery-item">
+                    <div class="card">
+                      <div class="front">
+                        <img src="images/pic02.jph" alt="Description 1">
+                        <div class="caption short">Short caption here</div>
+                      </div>
+                      <div class="back">
+                        <div class="caption long">
+                          Long caption here 
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+          
+            </div>
+            <button class="gallery-nav right" aria-label="Scroll right">❯</button>
+          </div>
+
+ 
+
+          
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <section id="footer">
+      <div class="container">
+        <ul class="copyright">
+          <li>&copy; Rebecca Topness 2026. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- ... your gallery HTML here ... -->
+
+  <script>
+    const scrollAmount = 400;
+
+    // Loop through each gallery container
+    document.querySelectorAll('.gallery-container').forEach(container => {
+    const gallery = container.querySelector('.gallery');
+    const leftBtn = container.querySelector('.gallery-nav.left');
+    const rightBtn = container.querySelector('.gallery-nav.right');
+
+    leftBtn.addEventListener('click', () => {
+        gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    rightBtn.addEventListener('click', () => {
+        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+    });
+  
+    // Fade toggle on click
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        // Close others if open
+        document.querySelectorAll('.card.faded').forEach(other => {
+          if (other !== card) other.classList.remove('faded');
+        });
+        card.classList.toggle('faded');
+      });
+    });
+  
+    // Optional: click anywhere outside to close all open cards
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.card')) {
+        document.querySelectorAll('.card.faded').forEach(c => c.classList.remove('faded'));
+      }
+    });
+  </script>
+
+<script>
+  // After DOM is ready
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      const height = img.clientHeight; // should be 250px
+      const ratio = img.naturalWidth / img.naturalHeight;
+      const width = height * ratio;
+      img.parentElement.parentElement.style.width = `${width}px`;
+    });
+  });
+</script>
+
+
+
+
+
+  
+  
+  
+
+
+
+
+</body>
+</html>
