@@ -46,66 +46,18 @@
 
 				<!-- Main -->
 					<div id="main">
+						<div id="set-height"></div>
 
-						<!-- One -->
-							<section id="one">
-								<div class="image main" data-position="center">
-									<img src="images/banner.jpg" alt="" />
-								</div>
-								<div class="container">
-									<h2>Writing</h2>
-										<p>Something about sci comm.</p> 
+					<section> 
+						<div class="container">
+							<h2>Writing</h2>
+							<p>Something about sci comm.</p>
+						</div>
+					</section>
+
+
 <!-- I WANT TO CHANGE THIS TO A GRID --> 
-                </div>
-							</section>
 
-              <section id="two">
-                <div class="container">
-                  <h3>Graphics, Figures and Illustrations</h3>
-
-          <div class="gallery-container">
-            <button class="gallery-nav left" aria-label="Scroll left">❮</button>
-            <div class="gallery" id="gallery1">
-
-                <div class="gallery-item">
-                    <div class="card">
-                      <div class="front">
-                        <img src="images/pic03.jpg" alt="Description 1">
-                        <div class="caption short">Short caption here</div>
-                      </div>
-                      <div class="back">
-                        <div class="caption long">
-                          Long caption here 
-                        </div>
-                      </div>
-                    </div>
-                </div>
-          
-                <div class="gallery-item">
-                    <div class="card">
-                      <div class="front">
-                        <img src="images/pic02.jph" alt="Description 1">
-                        <div class="caption short">Short caption here</div>
-                      </div>
-                      <div class="back">
-                        <div class="caption long">
-                          Long caption here 
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-          
-            </div>
-            <button class="gallery-nav right" aria-label="Scroll right">❯</button>
-          </div>
-
- 
-
-          
-      </section>
-
-    </div>
 
     <!-- Footer -->
     <section id="footer">
@@ -128,56 +80,7 @@
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <!-- ... your gallery HTML here ... -->
 
-  <script>
-    const scrollAmount = 400;
-
-    // Loop through each gallery container
-    document.querySelectorAll('.gallery-container').forEach(container => {
-    const gallery = container.querySelector('.gallery');
-    const leftBtn = container.querySelector('.gallery-nav.left');
-    const rightBtn = container.querySelector('.gallery-nav.right');
-
-    leftBtn.addEventListener('click', () => {
-        gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-
-    rightBtn.addEventListener('click', () => {
-        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-    });
-  
-    // Fade toggle on click
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', () => {
-        // Close others if open
-        document.querySelectorAll('.card.faded').forEach(other => {
-          if (other !== card) other.classList.remove('faded');
-        });
-        card.classList.toggle('faded');
-      });
-    });
-  
-    // Optional: click anywhere outside to close all open cards
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.card')) {
-        document.querySelectorAll('.card.faded').forEach(c => c.classList.remove('faded'));
-      }
-    });
-  </script>
-
-<script>
-  // After DOM is ready
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      const height = img.clientHeight; // should be 250px
-      const ratio = img.naturalWidth / img.naturalHeight;
-      const width = height * ratio;
-      img.parentElement.parentElement.style.width = `${width}px`;
-    });
-  });
-</script>
 
 
 
