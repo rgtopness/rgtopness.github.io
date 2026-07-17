@@ -1,0 +1,270 @@
+/* ==========================================================================
+   Custom site overrides shared across index, art and writing pages.
+   Page-specific differences are scoped with body.home / body.subpage.
+   ========================================================================== */
+
+/* --- Shared top horizontal header bar --- */
+#titleBar { display: none !important; }
+
+#header {
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	height: auto;
+	right: auto;
+	left: 0;
+	top: 0;
+	padding: 0.5em 2em;
+	overflow-y: visible;
+	z-index: 1000;
+	transform: none !important;
+	position: sticky !important;
+	gap: 0.5em 4em;
+}
+
+#header > header { padding: 0; text-align: left; }
+#header > header h1 { font-size: 1.5em; }
+#header > header p { display: none; }
+#header > nav { flex-grow: 0; margin-left: 0; }
+#header > nav ul { display: flex; flex-direction: row; }
+#header > nav ul li { border: 0; }
+#header > nav ul li a {
+	padding: 0.5em 1.25em;
+	font-weight: bold;
+	position: relative;
+}
+#header > nav ul li a.active { background: transparent !important; }
+#header > nav ul li a.active::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: -0.25em;
+	transform: translateX(-50%);
+	width: 55%;
+	height: 5px;
+	border-radius: 3px;
+}
+#header > footer { width: auto; padding: 0; }
+
+/* --- Shared wrapper / sections --- */
+#wrapper { padding-right: 0; padding-top: 0 !important; }
+#main > section { border-top-width: 2px; }
+
+/* --- Shared footer (blue with white social circles) --- */
+#footer {
+	background: #226CB1 !important;
+	color: #000000;
+	border-top: solid 2px #f4f4f4;
+}
+#footer .copyright li,
+#footer .copyright li a { color: #000000; border-left-color: #000000; }
+#footer .container { text-align: center; }
+#footer .copyright { text-align: center; }
+#footer .icons { display: inline-flex; justify-content: center; }
+#footer .icons li a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75em;
+	height: 2.75em;
+	background: #ffffff;
+	border-radius: 50%;
+	color: #000000 !important;
+}
+#footer .icons li a:hover { background: #ffffff; color: #000000 !important; }
+
+@media screen and (max-width: 980px) {
+	#header > nav { margin-top: 1.25em; }
+}
+
+/* ==========================================================================
+   Home page (index.html) - header overlays the banner, white menu text
+   ========================================================================== */
+body.home,
+body.home #wrapper,
+body.home #main { background-color: #226CB1; }
+
+body.home #main h2, body.home #main h3, body.home #main h4,
+body.home #main h5, body.home #main h6,
+body.home #main p, body.home #main li, body.home #main article { color: #000000; }
+
+/* Publications thumbnails: uniform size, cropped/zoomed */
+body.home #three .features article .image img {
+	width: 100%;
+	aspect-ratio: 1758 / 1194;
+	height: auto;
+	object-fit: cover;
+}
+
+/* Keep Publications items side-by-side (image left, text right) on mobile */
+@media screen and (max-width: 736px) {
+	body.home #three .features article {
+		display: flex;
+		align-items: center;
+		gap: 1.25em;
+	}
+	body.home #three .features article .image {
+		flex: 0 0 45%;
+		width: 45%;
+		margin: 0;
+		padding-right: 0;
+	}
+	body.home #three .features article .inner {
+		flex: 1 1 auto;
+		width: auto;
+	}
+}
+
+body.home #header {
+	position: absolute !important;
+	background: transparent !important;
+}
+body.home #header a { color: #ffffff; }
+body.home #header > nav ul li a.active { color: #ffffff !important; }
+body.home #header > nav ul li a.active::after { background: #ffffff; }
+
+/* Avatar overlapping the banner */
+body.home #one .image.avatar {
+	display: block;
+	width: 10em;
+	margin: -10em auto 1.5em auto;
+	position: relative;
+	z-index: 2;
+}
+body.home #one .image.avatar img { border-radius: 100%; width: 100%; }
+body.home #one .container { text-align: center; }
+
+/* Body content links on the home page: white underline, white on hover */
+body.home #main a {
+	color: inherit;
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration-color: #ffffff;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+body.home #main a:hover {
+	color: #ffffff !important;
+	text-decoration-color: #ffffff;
+}
+
+/* Contact Me email line */
+.contact-email { font-size: 1.25em; }
+.contact-email a { text-decoration: none; }
+body.home #main .contact-email a { text-decoration: none; }
+.contact-email a .fa-envelope { margin-right: 0.5em; text-decoration: none; }
+
+@media screen and (max-width: 980px) {
+	body.home #one .image.avatar { margin-top: -5em; }
+}
+@media screen and (max-width: 480px) {
+	body.home #one .image.avatar { margin-top: -2em; }
+}
+
+/* ==========================================================================
+   Sub pages (art.html, writing.html) - white menu bar, black menu text
+   ========================================================================== */
+body.subpage #header { background: #ffffff; }
+body.subpage #header a { color: #000000; }
+body.subpage #header > nav ul li a { color: #000000 !important; }
+body.subpage #header > nav ul li a.active { color: #000000 !important; }
+body.subpage #header > nav ul li a.active::after { background: #000000; }
+
+/* Writing thumbnails: uniform square, cropped/zoomed */
+body.subpage .features article .image { display: block; }
+body.subpage .features article .image img {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	height: auto;
+	object-fit: cover;
+}
+
+/* Non-mobile: image left, text to the right (robust flex row) */
+@media screen and (min-width: 737px) {
+	body.subpage .features article {
+		display: flex;
+		align-items: center;
+		gap: 2.5em;
+	}
+	body.subpage .features article .image {
+		flex: 0 0 40%;
+		width: 40%;
+		padding-right: 0;
+	}
+	body.subpage .features article .inner {
+		flex: 1 1 auto;
+		width: auto;
+	}
+}
+
+/* Subpage body content in black */
+body.subpage #main h1, body.subpage #main h2, body.subpage #main h3,
+body.subpage #main h4, body.subpage #main h5, body.subpage #main h6,
+body.subpage #main p, body.subpage #main li, body.subpage #main article { color: #000000; }
+
+/* --- Art gallery grid --- */
+.art-gallery {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2em;
+}
+.art-item {
+	position: relative;
+	display: block;
+	border-bottom: none;
+	overflow: hidden;
+	background: #f0f0f0;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.art-item img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.4s ease, filter 0.4s ease;
+}
+.art-item:hover img {
+	transform: scale(1.04);
+}
+.art-caption {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #000000;
+	font-weight: bold;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.85);
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+.art-item:hover .art-caption { opacity: 1; }
+
+@media screen and (max-width: 736px) {
+	.art-gallery { grid-template-columns: 1fr; gap: 1.5em; }
+}
+
+/* --- Art detail page --- */
+.art-back { margin-bottom: 1.5em; }
+.art-detail {
+	max-width: 900px;
+	margin: 0 auto;
+}
+.art-detail-header { text-align: center; margin-bottom: 1.5em; }
+.art-detail-header h2 { margin-bottom: 0.25em; }
+.art-detail-image { margin-bottom: 1.75em; }
+.art-detail-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+.art-detail-meta { font-style: italic; opacity: 0.75; margin-bottom: 0; }
